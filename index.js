@@ -117,7 +117,7 @@ function Login(event){
             console.log(resData)
             if(resData.msg === "Logged in Successfully"){
                 Notification(`&#10004;   ${resData.msg}`,'success')
-                window.location.href = "/home.html";
+                window.location.href = "./home.html";
             }else{
                 Notification(resData.msg,'failed')
             }
