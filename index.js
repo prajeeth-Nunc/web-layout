@@ -1,4 +1,4 @@
-window.$serverUrl = 'https://8297ec616b5c.ngrok.io'
+window.$serverUrl = 'https://984180ee7d8a.ngrok.io'
 
 // Notification Manager
 function Notification(Msg,statusFlag){
@@ -117,7 +117,7 @@ function Login(event){
             console.log(resData)
             if(resData.msg === "Logged in Successfully"){
                 Notification(`&#10004;   ${resData.msg}`,'success')
-                window.location.href = "/index.html";
+                window.location.href = "/home.html";
             }else{
                 Notification(resData.msg,'failed')
             }
@@ -224,9 +224,7 @@ function ChangePassword(event){
     }
 }
 
-// Home Page 
-
-// nav-header 
+// Home Page/nav-header 
 const barIcon = document.querySelector('.nav-han .fa')
 barIcon.addEventListener('click', showMainMenuLabels)
 
