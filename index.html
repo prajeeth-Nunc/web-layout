@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .nav-header .fa{
+            color: black;
+        }
+        .nav-header{
+            padding: 0px 18px;
+            background: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .left-header-items,.right-header-items,.brand{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .left-header-items li a,.brand li a,.right-header-items li a{
+            display: block;
+            padding: 15px 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="nav-header">
+        <ul class="left-header-items">
+            <li><a href="#" class="nav-han"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-window-maximize" aria-hidden="true"></i></a></li>
+            <li><a href="#"><span>Mega</span></a></li>
+            <li><a href="#"><span>Apps</span></a></li>
+            <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+        </ul>
+        <ul class="brand">
+            <li><a href="#"><img src="/assets/images/logo.jpg" class="logo" alt="logo"><span>Chameleon</span></a></li>
+        </ul>
+        <ul class="right-header-items">
+            <li><a href="#"><i class="fa fa-flag" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-bell-o" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+            <li><a href="#"><img src="/assets/images/logo.jpg" class="profile" alt="profile-img"></a></li>
+        </ul>
+    </nav>
+    
+    <div class="main-menu sticky">
+        <ul>
+            <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> <span>Dashboard</span></a></li>
+            <li><a href="#"><i class="la la-home"></i> <span>Apps</span></a></li>
+            <li><a href="#"><i class="fa fa-desktop" aria-hidden="true"></i> <span>Templates</span></a></li>
+            <li><a href="#"> <span>Layouts</span></a></li>
+            <li><a href="#"> <span>Starter kit</span></a></li>
+            <li><a href="#"> <span>UI</span></a></li>
+            <li><a href="#"> <span>Components</span></a></li>
+            <li><a href="#"> <span>Forms</span></a></li>
+            <li><a href="#"> <span>Tables</span></a></li>
+            <li><a href="#"> <span>Charts</span></a></li>
+            <li><a href="#"> <span>Pages</span></a></li>
+        </ul>
+    </div>
+
+    <div id='bg'></div>
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-8">
+                <div class="card Project-Revenue">
+                    <div class="loading"></div>
+                    <div class="card-header">
+                        <div class="card-title">Project Revenue
+                            <button class="pull-right round more">more</button>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="chart" style="min-height: 400px;text-align: center;">
+                        <h1 style="margin-top: 0px;">chart</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4" style="padding: 0px;">
+                <div class="row">
+                    <div class="col-12" >
+                        <div class="card pull-up Project-X-card">
+                            <div class="card-header">
+                                <div class="card-title">Project X
+                                    <span class="pull-right round " style="color:#fff; padding:2px 8px;background: var(--info);">in progress</span>
+                                </div>
+                            </div>
+                            <div class="card-body" style="padding-top: 0;">
+                                <span>Completed Task : 4/10</span>
+                                <div class="progress-bar"></div>
+                                    <p style="margin-bottom: 0;">Client: <span style="color: #28afd0;">Xeon Inc.</span></p>
+                                    <p style="margin-bottom: 0;">Deadline: 5th June, 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card Analytics pull-up">
+                            <div class="card-header">
+                                <div class="card-title">Analytics
+                                    <button class="pull-right report pull-down round" style="padding:5px 20px;background: #fff;color: #fa626b;">Report</button>
+                                </div>
+                            </div>
+                            <div class="card-body" >
+                                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, 
+                                    impedit beatae sapiente quis et laudantium explicabo error expedita 
+                                    mollitia obcaecati dolorum repellat reprehenderit. Velit ipsam doloremque
+                                     ut et voluptatem nisi!
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-8">
+                <div class="card Project-X ">
+                    <div class="card-header" style="padding: 14px;">
+                        <div class="card-title">Project X - <span>24 DEC 2017 - 09 APR 2019</span>
+                            <span class="pull-right round" style="color:#fff; padding:2px 8px;background: var(--info);">Approved</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-body" style="padding: 14px;">
+                        <div class="row projectX">
+                            <div class="col-3">
+                                <p>Tasks</p>
+                                <p style="font-size: 25px;">26</p>
+                            </div>
+                            <div class="col-3">
+                                <p>Completed</p>
+                                <p style="font-size: 25px;">58%</p>
+                            </div>
+                            <div class="col-3">
+                                <p>Pending</p>
+                                <p style="font-size: 25px;">42%</p>
+                            </div>
+                            <div class="col-3">
+                                <p>Version</p>
+                                <p style="font-size: 25px;">4.5</p>
+                            </div>
+                        </div>
+                        <hr style="margin:14px;">
+                        <p style="text-align: center;"><a href="#" style="color: var(--red);">Project X </a>Statistics</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card  New-Clients pull-up" style="border-top: 3px solid var(--info);">
+                    <div class="card-header">
+                        <div class="card-title">New-Clients
+                            <span class="pull-right round" style="color:#fff; padding:2px 8px;background: var(--info);">5+</span>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 14px;">
+                        <h1 style="margin: 0;opacity: 0.5;">18.5% <span class="pull-right">icon</span></h1>
+                    </div>
+                    <hr>
+                    <div class="card-footer">
+                        <i></i><span>23.67% increase</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">   
+            <div class="col-5">
+                <h3>Project Income</h3>
+                <div class="card Project-Income">
+                    <div class="card-header">
+                        <div class="card-title">Project Income</div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, 
+                            impedit beatae sapiente quis et laudantium explicabo error expedita 
+                            mollitia obcaecati dolorum repellat reprehenderit. Velit ipsam doloremque
+                             ut et voluptatem nisi!
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7">
+                <h3>Recent Projects</h3>
+                <div class="card Recent-Projects">
+                    <div class="card-header">
+                        <div class="card-title">Recent Projects</div>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-7">
+                <div class="card New-Projects">
+                    <div class="card-header">
+                        <div class="card-title">New Projects</div>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="card Chat">
+                    <div class="card-header">
+                        <div class="card-title">Chat</div>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/index.js"></script>
+    <!-- <footer>footer</footer> -->
+</body>
+</html>

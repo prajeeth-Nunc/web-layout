@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: #ccc;
+        }
+        .login-container ,.SignUp-container,.ChangePassword-container{
+            width: 40%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background: dodgerblue;
+            transition: width 2s ease;
+        }
+        @media screen and (max-width: 992px) {
+            .login-container ,.SignUp-container{
+                width: 80%;
+            }
+        }
+        .SignUp-container,.ChangePassword-container,.ChangePassword-form{
+            display: none;
+        }
+        .login-form ,.SignUp-form{
+            margin: 20px auto;
+        }
+
+        .SignUp-form select{
+            padding: 5px 10px;
+            margin: 10px auto;
+            border: none;
+            outline: none;
+
+        }
+        label{
+            color: white;
+        }
+        input{
+            margin: 10px auto;
+            outline: none;
+            padding: 8px 10px;
+            width: 100%;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+        }
+        input[type=submit]{
+            display: block;
+            text-align: center;
+            border: none;
+            padding: 10px 25px ;
+            width: 30%;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 15px;
+            letter-spacing: 2px;
+        }
+        input[type=submit]:hover{
+            background: orangered;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="notification-container">
+        <span id="notification-message"></span>
+    </div>
+    <div class="login-container">
+        <header>                       
+            <h2 style="text-align: center; color: white;">Login</h2>
+            <hr>
+        </header>
+        <form class="login-form">
+            <label for="email">Email :</label><br>
+            <input id="email" type="email" placeholder="Enter email id" ><br>
+            <label for="password">Password :</label><br>
+            <input id="password" type="password" placeholder="Password"><br>
+            <input onclick="Login(event)" type="submit" value="login">
+            <div style="display: flex;justify-content: space-around;">
+                <a onclick="ShowSignUp(event)" style='text-align:center;color: white;cursor: pointer;' type="submit"><span>Are you a new user? </span>SignUp</a>
+                <a onclick="ForgotPassword(event)" style='text-align:center;color: white;cursor: pointer;' type="submit">Change Password?</a>
+            </div>
+        </form>
+    </div>
+    <div class="SignUp-container">
+        <header>                       
+            <h2 style="text-align: center; color: white;">SignUp Form</h2>
+            <hr>
+        </header>
+        <form class="SignUp-form">
+            <select name="Saluation" id="saluation">
+                <option value="Mr." selected>Mr.</option>
+                <option value="Ms.">Ms.</option>
+            </select><br>
+            <label for="firstname1">First name :</label><br>
+            <input id="firstname1" type="text" placeholder="Enter First name"><br>
+            <label for="lasttname1">Last name :</label><br>
+            <input id="lasttname1" type="text" placeholder="Enter Last name"><br>
+            <label for="email1">Email :</label><br>
+            <input id="email1" type="email" placeholder="Enter email id"><br>
+            <label for="password1">Password :</label><br>
+            <input id="password1" type="password" placeholder="Password"><br>
+            <label for="passwordAgain1">Re-Enter Password :</label><br>
+            <input id="passwordAgain1" type="password" placeholder="Re-Enter Password"><br>
+            <input onclick="SignUp(event)" type="submit" value="Sign Up">
+        </form>
+    </div>
+    <div class="ChangePassword-container">
+        <header>                       
+            <h2 style="text-align: center; color: white;">Change Password</h2>
+            <hr>
+        </header>
+        <form class="SendEmail-form">
+            <label for="email2">Email :</label><br>
+            <input id="email2" type="email" placeholder="Enter email id"><br>
+            <input onclick="ValidateEmail(event)" type="submit" value="Send">
+        </form>
+        <form class="ChangePassword-form">
+            <label for="password2">Change Password :</label><br>
+            <input id="password2" type="password" placeholder="New Password"><br>
+            <label for="passwordAgain2">Re-Enter Password :</label><br>
+            <input id="passwordAgain2" type="password" placeholder="Re-Enter Password"><br>
+            <input onclick="ChangePassword(event)" type="submit" value="Submit">
+        </form>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
