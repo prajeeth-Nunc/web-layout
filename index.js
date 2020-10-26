@@ -1,5 +1,7 @@
 window.$serverUrl = 'https://0de215151f0a.ngrok.io'
 
+
+console.log('current ngrok Url : ',window.$serverUrl)
 // Notification Manager
 function Notification(Msg,statusFlag){
     const NotificationContainer = document.querySelector(".notification-container");
