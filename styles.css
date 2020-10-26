@@ -146,6 +146,13 @@ body{
     width: var(--col2);
 }
 
+@media screen and (max-width: 992px) {
+    .col-10,.col-9,.col-8,.col-7,.col-6,.col-5,.col-4,.col-3,.col-2{
+        width: var(--col12);
+        padding: 0px;
+    }
+}
+
 .notification-container{
     position: fixed;
     right: 20px;
@@ -185,6 +192,12 @@ a{
 
 .projectX .col-3:last-child{
     border-right: none;
+}
+
+@media screen and (max-width: 992px) {
+    .projectX .col-3{
+        border : none;
+    }
 }
 
 
