@@ -111,7 +111,7 @@ body{
     position: relative;
     width: 100%;
     /* box-sizing: border-box; */
-    overflow: auto;
+    overflow: hidden;
     /* clear: left; */
 }
 
@@ -261,13 +261,13 @@ button{
 }
 
 .pull-up{
-    outline: 2px solid red;
+    /* outline: 2px solid red; */
     transition: all .25s ease
 }
 
 .pull-up:hover{
     box-shadow: 0px 20px 15px 0px rgba(62, 57, 107, .07);
-    outline: 2px solid green;
+    /* outline: 2px solid green; */
     transform: scale(1.04);
 }
 
