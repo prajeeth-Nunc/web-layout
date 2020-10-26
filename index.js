@@ -1,4 +1,4 @@
-window.$serverUrl = 'https://984180ee7d8a.ngrok.io'
+window.$serverUrl = 'https://0de215151f0a.ngrok.io'
 
 // Notification Manager
 function Notification(Msg,statusFlag){
