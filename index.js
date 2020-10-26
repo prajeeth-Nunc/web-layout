@@ -225,7 +225,7 @@ function ChangePassword(event){
 }
 
 // Home Page/nav-header 
-const barIcon = document.querySelector('.nav-han .fa')
+const barIcon = document.querySelector('.nav-han')
 barIcon.addEventListener('click', showMainMenuLabels)
 
 function showMainMenuLabels() {
