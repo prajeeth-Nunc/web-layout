@@ -18,6 +18,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            position: relative;
         }
 
         .left-header-items,.right-header-items,.brand{
@@ -27,12 +28,101 @@
             display: flex;
             flex-direction: row;
         }
+        .left-header-items a,.right-header-items a,.brand a{
+            color: rgba(0, 0, 0, 0.7);
+            font-weight: 500;
+        }
+        .brand .side-bar, .brand .ellipse{
+            display:none;
+        }
 
+        @media screen and (max-width: 768px) {
+            .nav-header{
+                display: block;
+                position: fixed;
+                top:0;
+                left:0;
+                width: 100%;
+                z-index: 1;
+            }
+            .left-header-items,.right-header-items{
+                display: none;
+            }
+            .brand .side-bar,.brand .ellipse{
+                display:block;
+            }
+            .brand{
+                justify-content: space-between;
+            }
+            /* need to style nav main menu as side bar */
+            .main-menu-side{
+                display: none;
+                position:fixed;
+                top: 60px;
+                left: 0px;
+                max-width: 45%;
+                background-image: none;
+                background-color: #fff;
+            }
+            .main-menu-side ul li{
+                overflow: auto; 
+                display: block;
+                width: 100%;
+            }
+            .main-menu-side ul li a{
+                color: rgba(0,0,0,0.7);
+                width: 100%;
+                box-sizing: border-box;
+                padding: 12px 20px;
+            }
+            .main-menu-side ul li a:after{
+                content: '>';
+                font-weight: 600;
+                vertical-align: middle;
+                float: right;
+            }
+
+            .main-menu-side ul li a:hover{
+                color: var(--red);
+            }
+
+            .main-menu-side ul li a span:hover{
+                text-shadow: 0px 0px 1px var(--red);
+                padding-left: 4px;
+            }
+
+            .main-menu-side ul li a{
+                display: inline-block;
+            }
+            .icon{
+                text-align: center;
+                width: 20px;
+                margin-right: 20px;
+                padding: 10px;
+                border-radius: 3px;
+                box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+            }
+            .icon:hover{
+                box-shadow: 1px 1px 20px 1px rgba(255, 0, 0, 0.4);
+            }
+
+            .bg{
+                margin-top: 60px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .main-menu-side{
+                max-width: 65%;
+            }
+        }
         .left-header-items li a,.brand li a,.right-header-items li a{
             display: block;
             padding: 15px 14px;
         }
-
+        .icon{
+            margin-right: 8px ;
+        }
     </style>
 </head>
 <body>
@@ -45,7 +135,9 @@
             <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
         </ul>
         <ul class="brand">
+            <li><a href="#" class="side-bar"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
             <li><a href="#"><img src="images/logo.jpg" class="logo" alt="logo"><span>Chameleon</span></a></li>
+            <li><a href="#" class="ellipse" ><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a></li>
         </ul>
         <ul class="right-header-items">
             <li><a href="#"><i class="fa fa-flag" aria-hidden="true"></i></a></li>
@@ -54,23 +146,29 @@
             <li><a href="#"><img src="images/logo.jpg" class="profile" alt="profile-img"></a></li>
         </ul>
     </nav>
-    
-    <div class="main-menu sticky">
+    <div class="main-menu sticky main-menu-side">
         <ul>
-            <li><a href="#"><i class="fa fa-home fa-lg" aria-hidden="true"></i> <span>Dashboard</span></a></li>
-            <li><a href="#"><i class="fa fa-cubes" aria-hidden="true"></i> </i> <span>Apps</span></a></li>
-            <li><a href="#"><i class="fa fa-desktop" aria-hidden="true"></i> <span>Templates</span></a></li>
-            <li><a href="#"><i class="fa fa-square-o" aria-hidden="true"></i> <span>Layouts</span></a></li>
-            <li><a href="#"><i class="fa fa-bolt" aria-hidden="true"></i> <span>Starter kit</span></a></li>
-            <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i> <span>UI</span></a></li>
-            <li><a href="#"><i class="fa fa-cube" aria-hidden="true"></i> <span>Components</span></a></li>
-            <li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span>Forms</span></a></li>
-            <li><a href="#"><i class="fa fa-table" aria-hidden="true"></i> <span>Tables</span></a></li>
-            <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i> <span>Charts</span></a></li>
-            <li><a href="#"><i class="fa fa-file" aria-hidden="true"></i> <span>Pages</span></a></li>
+            <li><a href="#"><i class="fa fa-home fa-lg icon" aria-hidden="true"></i> <span>Dashboard</span></a></li>
+            <li><a href="#"><i class="fa fa-cubes icon" aria-hidden="true"></i> </i> <span>Apps</span></a></li>
+            <li><a href="#"><i class="fa fa-desktop icon" aria-hidden="true"></i> <span>Templates</span></a></li>
+            <li><a href="#"><i class="fa fa-square-o icon" aria-hidden="true"></i> <span>Layouts</span></a></li>
+            <li><a href="#"><i class="fa fa-bolt icon" aria-hidden="true"></i> <span>Starter kit</span></a></li>
+            <li><a href="#"><i class="fa fa-star-o icon" aria-hidden="true"></i> <span>UI</span></a></li>
+            <li><a href="#"><i class="fa fa-cube icon" aria-hidden="true"></i> <span>Components</span></a></li>
+            <li><a href="#"><i class="fa fa-pencil-square-o icon" aria-hidden="true"></i> <span>Forms</span></a></li>
+            <li><a href="#"><i class="fa fa-table icon" aria-hidden="true"></i> <span>Tables</span></a></li>
+            <li><a href="#"><i class="fa fa-bar-chart icon" aria-hidden="true"></i> <span>Charts</span></a></li>
+            <li><a href="#"><i class="fa fa-file icon" aria-hidden="true"></i> <span>Pages</span></a></li>
+            
+            <!-- test -->
+            <li><a href="#"><i class="fa fa-cube icon" aria-hidden="true"></i> <span>Components</span></a></li>
+            <li><a href="#"><i class="fa fa-pencil-square-o icon" aria-hidden="true"></i> <span>Forms</span></a></li>
+            <li><a href="#"><i class="fa fa-table icon" aria-hidden="true"></i> <span>Tables</span></a></li>
+            <li><a href="#"><i class="fa fa-bar-chart icon" aria-hidden="true"></i> <span>Charts</span></a></li>
+            <li><a href="#"><i class="fa fa-file icon" aria-hidden="true"></i> <span>Pages</span></a></li>
+            
         </ul>
     </div>
-
     <div id='bg'></div>
     <div class="content-wrapper">
         <div class="row">
@@ -89,7 +187,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4" style="padding: 0px;">
+            <div class="col-4" >
                 <div class="row">
                     <div class="col-12" >
                         <div class="card pull-up Project-X-card">

@@ -242,3 +242,25 @@ function showMainMenuLabels() {
         mainMenu.forEach(item => item.style.display = 'none');
     }
 }
+
+// show side menu 
+const sidebar = document.querySelector('.side-bar');
+sidebar.addEventListener('click', showSideBarMenu)
+
+function showSideBarMenu() {
+    const validators = ["",null,undefined]
+    let  sideMenuText = document.querySelectorAll('.main-menu-side ul li a span');
+    let sideMenu = document.querySelector('.main-menu-side')
+    console.log('sideMenu.style.display :',sideMenu.style.display)
+    if(validators.includes(sideMenu.style)){
+        sideMenu.style.display = 'block';
+        sideMenuText.forEach(item => item.style.display = 'inline-block');
+    }else{
+        if( sideMenu.style.display === 'block'){
+            sideMenu.style.display = 'none';
+        }else{
+            sideMenu.style.display = 'block';
+            sideMenuText.forEach(item => item.style.display = 'inline-block');
+        }
+    }
+}
