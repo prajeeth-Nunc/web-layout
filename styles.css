@@ -49,7 +49,7 @@ body{
 /* nav bar main menu styles */
 .main-menu{
     position: relative;
-    /* padding: 0px 18px; */
+    padding: 0px 18px;
     background-image: linear-gradient(to right, var(--lightprimary), var(--lightblue));
     box-shadow: -1px 1px 5px rgba(0, 0, 0, .2);
  }
@@ -112,9 +112,12 @@ body{
 .row{
     position: relative;
     width: 100%;
-    /* box-sizing: border-box; */
-    overflow: hidden;
-    /* clear: left; */
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .col-12{

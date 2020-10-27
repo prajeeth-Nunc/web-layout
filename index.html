@@ -21,11 +21,11 @@
             box-sizing: border-box;
             border-radius: 10px;
             background: dodgerblue;
-            transition: width 2s ease;
+            transition: width 1s;
         }
         @media screen and (max-width: 992px) {
-            .login-container ,.SignUp-container{
-                width: 80%;
+            .login-container ,.SignUp-container,.ChangePassword-container{
+                width: 90%;
             }
         }
         .SignUp-container,.ChangePassword-container,.ChangePassword-form{
@@ -56,11 +56,11 @@
             box-sizing: border-box;
         }
         input[type=submit]{
-            display: block;
-            text-align: center;
+            display: flex;
             border: none;
+            justify-content: center;
             padding: 10px 25px ;
-            width: 30%;
+            width: 40%;
             text-transform: uppercase;
             cursor: pointer;
             font-weight: 800;
@@ -70,6 +70,20 @@
         input[type=submit]:hover{
             background: orangered;
             color: white;
+        }
+        .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .close:hover{
+            color: var(--red);
+            background: white;
         }
         
     </style>
@@ -96,7 +110,8 @@
         </form>
     </div>
     <div class="SignUp-container">
-        <header>                       
+        <span onclick="closeSignup(event)" class="close">X</span>
+        <header>        
             <h2 style="text-align: center; color: white;">SignUp Form</h2>
             <hr>
         </header>
@@ -119,7 +134,8 @@
         </form>
     </div>
     <div class="ChangePassword-container">
-        <header>                       
+        <span onclick="closeChangePwd(event)" class="close">X</span>
+        <header>               
             <h2 style="text-align: center; color: white;">Change Password</h2>
             <hr>
         </header>

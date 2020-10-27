@@ -226,6 +226,17 @@ function ChangePassword(event){
     }
 }
 
+
+function closeSignup(event){
+    event.preventDefault();
+    ShowLogin(event);
+}
+
+function closeChangePwd(event){
+    event.preventDefault();
+    ShowLogin(event);
+}
+
 // Home Page/nav-header 
 const barIcon = document.querySelector('.nav-han')
 barIcon.addEventListener('click', showMainMenuLabels)
