@@ -192,7 +192,6 @@ function displayChangePassword(event){
     SendEmailForm.style.display = "none";
     const ChangePasswordForm =document.querySelector(".ChangePassword-form");
     ChangePasswordForm.style.display = "block";
-    
 }
 
 // Change Password
