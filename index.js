@@ -1,21 +1,30 @@
-window.$serverUrl = 'https://0de215151f0a.ngrok.io'
+window.$serverUrl = 'https://5d173f549074.ngrok.io'
 
 
 console.log('current ngrok Url : ',window.$serverUrl)
-// Notification Manager
-function Notification(Msg,statusFlag){
-    const NotificationContainer = document.querySelector(".notification-container");
-    const messageTag = NotificationContainer.querySelector('#notification-message');
-    messageTag.innerHTML = Msg;
-    if (statusFlag === 'success'){
-        NotificationContainer.style.cssText = "display : block;"
-
-    }else if(statusFlag === "failed"){
-        NotificationContainer.style.cssText = "display : block;background:#fa626b;"
-    }else{
-        NotificationContainer.style.cssText = "display : block;background:#fdb901;"
+// updating Notification Manager
+let Notification = {
+    error : (Msg) => {
+        const NotContainer = document.querySelector(".notification-container");
+        const msgTag = NotContainer.querySelector('#notification-message');
+        msgTag.innerHTML = Msg;
+        NotContainer.style.cssText = "display : block;background:#fa626b;";
+        setTimeout(()=>{NotContainer.style.cssText = "display : none;"},3000)
+    },
+    success : (Msg) => {
+        const NotContainer = document.querySelector(".notification-container");
+        const msgTag = NotContainer.querySelector('#notification-message');
+        msgTag.innerHTML = Msg;
+        NotContainer.style.display = "block";
+        setTimeout(()=>{NotContainer.style.cssText = "display : none;"},3000)
+    },
+    warning : (Msg) => {
+        const NotContainer = document.querySelector(".notification-container");
+        const msgTag = NotContainer.querySelector('#notification-message');
+        msgTag.innerHTML = Msg;
+        NotContainer.style.cssText = "display : block;background:#fdb901;";
+        setTimeout(()=>{NotContainer.style.cssText = "display : none;"},3000)
     }
-    setTimeout(()=>{NotificationContainer.style.cssText = "display : none;"},3000)
 }
 
 // Show Sign up form
@@ -54,17 +63,17 @@ function SignUp(event){
     console.log({Saluation,FirstName,LastName,Email,Password});
     
     if(validators.includes(FirstName)){
-        Notification('Please Enter FirstName','warning');
+        Notification.warning('Please Enter FirstName')
     }else if(validators.includes(LastName)){
-        Notification('Please Enter LastName','warning');
+        Notification.warning('Please Enter LastName')
     }else if(validators.includes(Email)){
-        Notification('Please Enter Email ID','warning');
+        Notification.warning('Please Enter Email ID')
     }else if(validators.includes(Password)){
-        Notification('Please Enter Password','warning');
+        Notification.warning('Please Enter Password')
     }else if(validators.includes(PasswordAgain)){
-        Notification('Please Re-Enter Password','warning');
+        Notification.warning('Please Re-Enter Password')
     }else if(Password !== PasswordAgain){
-        Notification('Passwords Doesn\'t match','warning');
+        Notification.warning('Passwords Doesn\'t match')
     }else{
         let data = {Saluation,FirstName,LastName,Email,Password}
         console.log('SignUp : ',data);
@@ -78,15 +87,15 @@ function SignUp(event){
         }).then(response => response.json())
         .then(resData => {
             if(resData.msg === "SignUp Successfull"){
-                Notification('&#10004;   Signned up Successfully','success')
+                Notification.success('&#10004;   Signned up Successfully')
                 ShowLogin(event);
             }else{
-                Notification(resData.msg,'failed')
+                Notification.error(resData.msg)
             }
         })
         .catch((error) => {
             console.log(error)
-            Notification(error,'failed')
+            Notification.error(error)
         });
     }
 }
@@ -101,9 +110,9 @@ function Login(event){
     const Password =  loginForm.querySelector('#password').value;
     console.log(Email,Password);
     if(validators.includes(Email)){
-        Notification('Email ID missing','warning');
+        Notification.warning('Email ID missing')
     }else if (validators.includes(Password)){
-        Notification('Password missing','warning');
+        Notification.warning('Password missing')
     }else{
         let data = {Email,Password}
         console.log('Login : ',data);
@@ -118,15 +127,15 @@ function Login(event){
         .then(resData => {
             console.log(resData)
             if(resData.msg === "Logged in Successfully"){
-                Notification(`&#10004;   ${resData.msg}`,'success')
+                Notification.success(`&#10004;   ${resData.msg}`)
                 window.location.href = 'home.html';
             }else{
-                Notification(resData.msg,'failed')
+                Notification.error(resData.msg)
             }
         })
         .catch((error) => {
             console.log(error)
-            Notification(error,'failed')
+            Notification.error(error)
         });
     }
 }
@@ -148,7 +157,7 @@ function ValidateEmail(event){
     const Email =  SendEmailForm.querySelector('#email2').value;
     console.log(Email);
     if(validators.includes(Email)){
-        Notification('Email ID missing','warning');
+        Notification.warning('Email ID missing')
     }else{
         let data = {Email};
         fetch(window.$serverUrl + '/isValidUser', {
@@ -162,16 +171,16 @@ function ValidateEmail(event){
         .then(resData => {
             console.log(resData)
             if(resData.status){
-                Notification('Valid Email Id','success')
+                Notification.success('Valid Email Id')
                 localStorage.setItem('Email',Email);
                 displayChangePassword(event)
             }else{
-                Notification('Invalid Email Id','failed')
+                Notification.error('Invalid Email Id')
             }
         })
         .catch((error) => {
             console.log(error)
-            Notification(error,'failed')
+            Notification.error(error)
         });
     }
 }
@@ -195,11 +204,11 @@ function ChangePassword(event){
     const PasswordAgain =  ChangePasswordForm.querySelector('#passwordAgain2').value;
     console.log(ChangePassword,PasswordAgain)
     if(validators.includes(ChangePassword)){
-        Notification('Please Enter Password','warning');
+        Notification.warning('Please Enter Password')
     }else if(validators.includes(PasswordAgain)){
-        Notification('Please Re-Enter Password','warning');
+        Notification.warning('Please Re-Enter Password')
     }else if(ChangePassword !== PasswordAgain){
-        Notification('Both Passwords Doesn\'t match','warning');
+        Notification.warning('Both Passwords Doesn\'t match')
     }else{
         let Email = localStorage.getItem('Email');
         let data = {Email,ChangePassword}
@@ -213,15 +222,15 @@ function ChangePassword(event){
         }).then(response => response.json())
         .then(resData => {
             if(resData.msg === 'Password changed successfully'){
-                Notification('Password changed Successfully','success')
+                Notification.success('Password changed Successfully')
                 ShowLogin(event);
             }else{
-                Notification('Password change failed','failed')
+                Notification.error('Password change failed')
             }
         })
         .catch((error) => {
             console.log(error)
-            Notification(error,'failed')
+            Notification.error(error)
         });
     }
 }
@@ -238,10 +247,10 @@ function closeChangePwd(event){
 }
 
 // Home Page/nav-header 
-const barIcon = document.querySelector('.nav-han')
-barIcon.addEventListener('click', showMainMenuLabels)
+// const barIcon = document.querySelector('.nav-han')
+// barIcon.addEventListener('click', showMainMenuLabels)
 
-function showMainMenuLabels() {
+function showMainMenuLabels(event) {
     let  mainMenu = document.querySelectorAll('.main-menu ul li a span');
     let spanItem = document.querySelector('.main-menu ul li a span');
     console.log(spanItem);
@@ -257,10 +266,10 @@ function showMainMenuLabels() {
 }
 
 // show side menu 
-const sidebar = document.querySelector('.side-bar');
-sidebar.addEventListener('click', showSideBarMenu)
+// const sidebar = document.querySelector('.side-bar');
+// sidebar.addEventListener('click', showSideBarMenu)
 
-function showSideBarMenu() {
+function showSideBarMenu(event) {
     const validators = ["",null,undefined]
     let  sideMenuText = document.querySelectorAll('.main-menu-side ul li a span');
     let sideMenu = document.querySelector('.main-menu-side')
